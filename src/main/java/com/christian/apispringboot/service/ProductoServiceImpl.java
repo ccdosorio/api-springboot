@@ -25,4 +25,19 @@ public class ProductoServiceImpl implements ProductoService{
     public Optional<List<Producto>> getEscasos(int cantidad) {
         return productoCrudRepository.findByCantidadStockLessThanAndEstado(cantidad, true);
     }
+
+    @Override
+    public Optional<Producto> getProducto(int idProducto) {
+        return productoCrudRepository.findById(idProducto);
+    }
+
+    @Override
+    public Producto save(Producto producto) {
+        return productoCrudRepository.save(producto);
+    }
+
+    @Override
+    public void delete(int idProducto) {
+        productoCrudRepository.deleteById(idProducto);
+    }
 }
